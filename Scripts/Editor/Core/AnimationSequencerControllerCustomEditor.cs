@@ -55,6 +55,10 @@ namespace BrunoMikoski.AnimationSequencer
             EditorApplication.update += EditorUpdate;
             EditorApplication.playModeStateChanged += OnEditorPlayModeChanged;
             
+            // Changes
+            if (!Application.isPlaying)
+                sequencerController.ResetToInitialState();
+
 #if UNITY_2021_1_OR_NEWER
             UnityEditor.SceneManagement.PrefabStage.prefabSaving += PrefabSaving;
 #else
@@ -98,7 +102,10 @@ namespace BrunoMikoski.AnimationSequencer
             {
                 if (DOTweenEditorPreview.isPreviewing)
                 {
-                    sequencerController.ResetToInitialState();
+                    // Changes
+                    if(sequencerController)
+                        sequencerController.ResetToInitialState();
+
                     DOTweenEditorPreview.Stop();            
                 }
             }
