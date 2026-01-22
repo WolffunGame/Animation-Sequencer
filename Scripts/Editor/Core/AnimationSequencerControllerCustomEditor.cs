@@ -55,7 +55,6 @@ namespace BrunoMikoski.AnimationSequencer
             EditorApplication.update += EditorUpdate;
             EditorApplication.playModeStateChanged += OnEditorPlayModeChanged;
             
-            // Changes
             if (!Application.isPlaying)
                 sequencerController.ResetToInitialState();
 
@@ -102,7 +101,6 @@ namespace BrunoMikoski.AnimationSequencer
             {
                 if (DOTweenEditorPreview.isPreviewing)
                 {
-                    // Changes
                     if(sequencerController)
                         sequencerController.ResetToInitialState();
 
